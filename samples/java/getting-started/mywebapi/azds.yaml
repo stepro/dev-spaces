@@ -24,7 +24,7 @@ configurations:
       useGitIgnore: true
     container:
       imports:
-      - azuredevjava/javadebug:latest@/javadebug:/javadebug
+      - azuredevjava/javadebug:stable@/javadebug:/javadebug
       sync:
       - "**/**"
       iterate:
