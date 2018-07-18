@@ -1,7 +1,9 @@
 FROM maven:3.5-jdk-8-slim AS build
 WORKDIR /usr/src/app
+COPY pom.xml .
+RUN ["/usr/local/bin/mvn-entrypoint.sh", "mvn", "verify", "clean", "--fail-never"]
 COPY . .
-RUN ["mvn", "clean", "package"]
+RUN ["mvn", "package"]
 
 FROM openjdk:8-jre-slim AS final
 WORKDIR /usr/src/app
